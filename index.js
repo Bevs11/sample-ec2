@@ -6,14 +6,14 @@
 
 const axios = require("axios");
 
-// Make a GET request to a public API
+const randomNumber = Math.floor(Math.random() * 100) + 1;
+
 axios
-  .get("https://jsonplaceholder.typicode.com/todos/1")
+  .get(`https://jsonplaceholder.typicode.com/todos/${randomNumber}`)
   .then((response) => {
-    console.log("DATA FROM API:", response.data);
+    console.log("DATA FROM API:", response.data.title);
+    console.log("Date:" + new Date());
   })
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
-
-console.log("Hello, World!" + new Date());
